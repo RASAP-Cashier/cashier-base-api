@@ -1,0 +1,14 @@
+{
+  "name": "handler",
+  "version": "1.0.0",
+  "description": "Example of creating a function that runs as handler",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^11.13.0",
+    "serverless-plugin-typescript": "1.1.7"
+  },
+  "scripts": {
+    "serverless": "../../node_modules/serverless/bin/serverless.js"
+  }
+}
