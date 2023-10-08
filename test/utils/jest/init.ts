@@ -1,7 +1,7 @@
 import { knex as Knex } from "knex";
 
 import { ENVIRONMENT } from "../../../app/shared/constants";
-import { dropDb, createDb, close } from "../db";
+import { dropDb, close } from "../db";
 import knexConfig from "../../../app/knexConfig";
 
 const { client, connection } = knexConfig[ENVIRONMENT.test];
@@ -9,7 +9,7 @@ const { client, connection } = knexConfig[ENVIRONMENT.test];
 module.exports = async function () {
   console.info(`[${ENVIRONMENT.test}] creating db ${connection.database}`);
   await dropDb();
-  await createDb();
+  //await createDb();
   close();
 
   const newKnex = Knex({

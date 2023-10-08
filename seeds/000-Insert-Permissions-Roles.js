@@ -42,7 +42,7 @@ exports.seed = async function (knex) {
 
   if (!is_seed_available) return;
 
-  knex.transaction(async (trx) => {
+  return knex.transaction(async (trx) => {
     try {
       await trx("knex_seeds_lock").where("id", 1).update({ is_locked: true });
 

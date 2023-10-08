@@ -5,15 +5,8 @@ const TABLE_NAME = "role_permissions";
 exports.up = function (knex) {
   return knex.schema.createTable(TABLE_NAME, (table) => {
     table.increments();
-    table.integer("role_id").unsigned().notNullable().references("id").inTable("roles").onDelete("CASCADE").index();
-    table
-      .integer("permission_id")
-      .unsigned()
-      .notNullable()
-      .references("id")
-      .inTable("permissions")
-      .onDelete("CASCADE")
-      .index();
+    table.integer("role_id").notNullable().references("id").inTable("roles").onDelete("CASCADE").index();
+    table.integer("permission_id").notNullable().references("id").inTable("permissions").onDelete("CASCADE").index();
   });
 };
 

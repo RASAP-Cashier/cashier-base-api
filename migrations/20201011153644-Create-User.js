@@ -1,25 +1,27 @@
 "use strict";
-
+const { addCommonColumns } = require("./utils");
 const TABLE_NAME = "users";
-exports.up = (knex) =>
-  knex.schema.createTable(TABLE_NAME, (t) => {
+
+exports.up = async (knex) => {
+  await knex.schema.createTable(TABLE_NAME, (t) => {
     t.increments("id").primary();
-    t.string("first_name");
-    t.string("last_name");
-    t.string("phone");
-    t.string("photo").defaultTo(null);
-    t.string("email");
-    t.string("password_hash");
-    t.string("confirmation_hash").defaultTo(null);
+    t.text("first_name");
+    t.text("last_name");
+    t.text("phone");
+    t.text("photo").defaultTo(null);
+    t.text("email");
+    t.text("password_hash");
+    t.text("confirmation_hash").defaultTo(null);
     t.boolean("is_active").defaultTo(false);
     t.boolean("is_email_verified").defaultTo(false);
 
-    t.timestamp("created_at").defaultTo(knex.fn.now());
-    t.timestamp("updated_at").defaultTo(knex.raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
-    t.string("created_by");
-    t.string("updated_by");
+    // Use the utility function to add common columns
+    addCommonColumns(t, knex);
   });
+};
 
-exports.down = function (knex) {
+exports.down = async function (knex) {
+  await knex.raw(`DROP TRIGGER IF EXISTS ${TABLE_NAME}_update_updated_at ON ${TABLE_NAME}`);
+  await knex.raw(`DROP FUNCTION IF EXISTS ${TABLE_NAME}_update_timestamp`);
   return knex.schema.dropTable(TABLE_NAME);
 };

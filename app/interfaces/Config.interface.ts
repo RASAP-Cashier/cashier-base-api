@@ -22,6 +22,6 @@ export interface ConfigInterface {
   jwt_secret: string;
 }
 
-export interface KnexMysql2Config extends Knex.Config {
-  connection: Knex.MySql2ConnectionConfig;
+export interface KnexPostgresConfig extends Knex.Config {
+  connection: Knex.PgConnectionConfig;
 }

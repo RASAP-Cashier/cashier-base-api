@@ -3,15 +3,19 @@
 const { addCommonColumns } = require("./utils");
 const TABLE_NAME = "roles";
 
-exports.up = (knex) =>
-  knex.schema.createTable(TABLE_NAME, (t) => {
+exports.up = async (knex) => {
+  await knex.schema.createTable(TABLE_NAME, (t) => {
     t.increments("id").primary();
-    t.string("name");
-    t.string("description");
+    t.text("name");
+    t.text("description");
 
+    // Add common columns without the is_deleted column
     addCommonColumns(t, knex, false);
   });
+};
 
-exports.down = function (knex) {
+exports.down = async function (knex) {
+  await knex.raw(`DROP TRIGGER IF EXISTS ${TABLE_NAME}_update_updated_at ON ${TABLE_NAME}`);
+  await knex.raw(`DROP FUNCTION IF EXISTS ${TABLE_NAME}_update_timestamp`);
   return knex.schema.dropTable(TABLE_NAME);
 };

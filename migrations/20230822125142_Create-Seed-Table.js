@@ -7,7 +7,7 @@ const TABLE_NAME = "knex_seeds";
 exports.up = function (knex) {
   return knex.schema.createTable(TABLE_NAME, (table) => {
     table.increments("id");
-    table.string("file_name").notNullable();
+    table.text("file_name").notNullable(); // Changed to text for flexibility
     table.timestamp("seed_time").defaultTo(knex.fn.now());
   });
 };
