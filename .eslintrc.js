@@ -1,39 +1,25 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: "module",
+    project: 'tsconfig.json',
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
   },
+  plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [
-    "eslint-config-prettier",
-    "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+  },
+  ignorePatterns: ['.eslintrc.js'],
   rules: {
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/ban-ts-ignore": 0,
-    "import/no-unresolved": [2, { commonjs: true, amd: true }],
-    "import/named": 1,
-    "import/namespace": 2,
-    "import/default": 2,
-    "import/export": 2,
-    "import/order": [
-      "error",
-      {
-        groups: [
-          "builtin", // Built-in types are first
-          "external",
-          ["sibling", "parent"], // Then sibling and parent types. They can be mingled together
-          "index", // Then the index file
-          "object",
-          // Then the rest: internal and external type
-        ],
-        "newlines-between": "always",
-      },
-    ],
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

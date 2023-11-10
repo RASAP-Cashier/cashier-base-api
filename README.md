@@ -1,36 +1,73 @@
-# Cashier Base API
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-## Set-up steps
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-### 1. Update node version to one on the server
-####   Make sure to set the version of your local node to match the version on the server to avoid unpredictable results after deploying your code to cloud environments.
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-### 2. Install mysql
-####   Locally or into a docker container
+## Description
 
-### 3. Create a mysql user and database
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-### 5. Set environment variables
-####   run
-    cp .env.sample .env
-####   and change values to real ones inside .env.
+## Installation
 
-### 6. Install dependencies
-    npm i
+```bash
+$ yarn install
+```
 
-### 7. Start app
-    npm run dev
+## Running the app
 
+```bash
+# development
+$ yarn run start
 
-## Lambdas deployment
+# watch mode
+$ yarn run start:dev
 
-Update `service`, `projectName`, `bucketName`, and `executionRole` to actual values (you can grab them from cloudformation outputs).
+# production mode
+$ yarn run start:prod
+```
 
-If no lambda needs access to DB (or any other internal services), you don't need to do any extra actions. Your lambdas already may be executed and have access to the Internet.
+## Test
 
-If some of your lambdas need access to DB, you must uncomment and configure `securityGroupId`, `subnetId1`, `subnetId2` (you can grab them from cloudformation outputs). Also, uncomment the `vpc` block under `provider`.
+```bash
+# unit tests
+$ yarn run test
 
-Optionally you may also uncomment `dbHost` and `environment` block to set up environment variables while lambdas creation/updating.
-You can also add other environment variables. But be sure you don't add any sensitive data. Such parameters should be added manually on AWS.
+# e2e tests
+$ yarn run test:e2e
 
-If you need to set up different resources/environments/timeout etc. for different functions, it's possible to override them under a particular function definition. You can find a lot of examples [here](https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml).
+# test coverage
+$ yarn run test:cov
+```
+
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](LICENSE).
