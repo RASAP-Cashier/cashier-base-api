@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker": "sudo docker compose up"
   },
   "dependencies": {
     "@linagora/passport-jwt": "^1.2.3",
@@ -26,11 +27,14 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/jwt": "^10.1.1",
     "@nestjs/mapped-types": "*",
+    "@nestjs/microservices": "^10.2.8",
     "@nestjs/passport": "^10.0.2",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.0",
     "@types/passport-jwt": "^3.0.12",
     "@types/passport-local": "^1.0.37",
+    "amqp-connection-manager": "^4.1.14",
+    "amqplib": "^0.10.3",
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",

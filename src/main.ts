@@ -8,6 +8,7 @@ async function bootstrap() {
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.startAllMicroservices();
 
   await app.listen(3000);
 }

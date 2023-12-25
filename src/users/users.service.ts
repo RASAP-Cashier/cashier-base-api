@@ -15,10 +15,6 @@ export class UsersService {
     return this.usersRepository.save(createUserDto);
   }
 
-  findAll() {
-    return `This action returns all users`;
-  }
-
   findOneByEmail(email: string) {
     const user = this.usersRepository.findOneBy({ email });
     return user;

@@ -10,7 +10,7 @@ import { AtStrategy } from './strategies/at.strategy';
     JwtModule.register({
       secret: process.env.JWT_SECRET,
       signOptions: {
-        expiresIn: '60s',
+        expiresIn: '6h',
       },
     }),
     UsersModule,

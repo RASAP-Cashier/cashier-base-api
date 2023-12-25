@@ -21,7 +21,7 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
-  @Get()
+  @Get('/me')
   @Roles(Role.User)
   findAll(@Req() req) {
     return this.usersService.findOneById(req.user.id);
