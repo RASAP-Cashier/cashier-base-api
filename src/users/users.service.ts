@@ -12,7 +12,9 @@ export class UsersService {
   ) {}
 
   create(createUserDto: CreateUserDto) {
-    return this.usersRepository.save(createUserDto);
+    return this.usersRepository.save(
+      this.usersRepository.create(createUserDto)
+    );
   }
 
   findOneByEmail(email: string) {

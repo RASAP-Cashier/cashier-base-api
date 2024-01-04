@@ -1,0 +1,10 @@
+### Send POST request with json body
+POST http://13.60.2.1:3000/auth/signup
+Content-Type: application/json
+
+{
+  "firstName": "dramwork",
+  "lastName": "dramwork",
+  "password": "dramwork",
+  "email": "dramwork5@gmail.com"
+}
