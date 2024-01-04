@@ -4,7 +4,7 @@ import { IsEmail, IsString, Length } from 'class-validator';
 import { Column, Entity } from 'typeorm';
 
 @Entity({
-  name: 'Users',
+  name: 'users',
 })
 export class User extends BaseEntity {
   @Column({
