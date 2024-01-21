@@ -18,7 +18,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker": "sudo docker compose up"
+    "docker": "sudo docker compose up",
+    "generate:models": "typeorm-model-generator -h localhost -d cashier -u postgres -e postgres -o ./db"
   },
   "dependencies": {
     "@linagora/passport-jwt": "^1.2.3",
@@ -68,6 +69,7 @@
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
+    "typeorm-model-generator": "^0.4.6-no-engines",
     "typescript": "^5.1.3"
   },
   "jest": {
