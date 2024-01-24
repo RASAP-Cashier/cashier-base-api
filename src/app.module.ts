@@ -10,6 +10,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AtGuard, RolesGuard } from './common/guards';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { PostgresConfigService } from './config/postgres.config';
+import { WidgetModule } from '@/widget/widget.module';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { PostgresConfigService } from './config/postgres.config';
     ]),
     AuthModule,
     UsersModule,
+    WidgetModule,
   ],
   controllers: [AppController],
   providers: [

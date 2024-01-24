@@ -1,0 +1,9 @@
+### Send Save Widget Settings request
+POST http://localhost:3000/widget/settings
+Content-Type: application/json
+
+{
+}
+
+### Send Get Widget Settings request
+GET http://localhost:3000/widget/settings

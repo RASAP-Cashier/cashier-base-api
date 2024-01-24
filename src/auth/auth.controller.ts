@@ -4,6 +4,7 @@ import { CreateUserDto } from './../users/dto/create-user.dto';
 import { AuthDto } from './dto/auth.dto';
 import { TokensType } from '@/types';
 import { Public } from '@/common/decorators';
+
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authenticationService: AuthService) {}
